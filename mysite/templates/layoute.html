@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Главная страница</title>{% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'news_list' %}">Новости</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        <h1>Добро пожаловать на наш сайт по добавлению новостей</h1>
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>Все права защищены &copy; 2024</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+{% extends 'layoute.html' %}
+
+{% block title %}
+    <title>НОВОСТНАЯ СТРАНИЦА</title>
+{% endblock %}
+
+{% block content %}
+<h1>Новостная страница</h1>
+
+<style>
+    /* Добавьте стиль для текста новостей */
+    .news-text {
+        white-space: pre-wrap; /* Сохраняет переносы строк */
+        word-wrap: break-word; /* Переносит длинные слова */
+        max-width: 600px; /* Устанавливает максимальную ширину текста */
+    }
+</style>
+
+{% if news %}
+    <ul>
+        {% for post in news %}
+        <li>
+            <h2>{{ post.title }}</h2>
+            <p><strong>Краткое описание:</strong> {{ post.short_description }}</p>
+            <p class="news-text">{{ post.text }}</p> <!-- Добавлен класс для текста новостей -->
+            <p><em>Опубликовано: {{ post.pub_date }}</em></p>
+            <p><strong>Автор:</strong> {{ post.author.username }}</p>
+            <p><strong>Имя:</strong> {{ post.author.first_name }}</p>
+            <p><strong>Е-мэйл автора:</strong> {{ post.author.email }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Пока нет новостей.</p>
+{% endif %}
+
+{% endblock %}
